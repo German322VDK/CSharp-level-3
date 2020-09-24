@@ -6,7 +6,63 @@
         xmlns:local="clr-namespace:Project_send_Email"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <DockPanel >
 
-    </Grid>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Выход"/>
+            </MenuItem>
+        </Menu>
+        <TabControl>
+            <TabItem Header="Ввод своей почты и пароля">
+                <StackPanel Height="230">
+                    <Label Content="Вводим свою почту и пароль:"/>
+                    <UniformGrid Columns="2">
+                        <Label Content="Почта:" Height="28"/>
+                        <Label Content="Пароль:"/>
+                        <TextBox Text="youmail@somemail.com"/>
+                        <TextBox/>
+                    </UniformGrid>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Ввод почты получателя">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="170*"/>
+                        <ColumnDefinition Width="61*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="127*"/>
+                        <RowDefinition Height="261*"/>
+                    </Grid.RowDefinitions>
+                    <TextBox HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="207" Margin="128,127,0,0" Grid.RowSpan="2">youmail@somemail.com</TextBox>
+                </Grid >
+            </TabItem>
+            <TabItem Header="Ввод информации письма">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Width="168">Введите имя:</Label>
+                        <TextBox  Width="200" Text="Имя"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Width="168">Введите тему:</Label>
+                        <TextBox  Width="200" Text="Тема"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Width="168">Введите текст письма:</Label>
+                        <TextBox  Width="292" Height="133" />
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="321*"/>
+                <RowDefinition Height="95*"/>
+            </Grid.RowDefinitions>
+            <Button  Content="Ввод" FontFamily="Times New Roman" 
+                 FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Bottom"  Width="100"/>
+        </Grid >
+
+    </DockPanel>
 </Window>
