@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Net;
+using System.Net.Mail;
 
 namespace Project_send_Email
 {
@@ -23,6 +25,57 @@ namespace Project_send_Email
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void YLoginEdit_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+       
+
+        private void PLoginEdit_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void ThemnEdit_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Yname_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void LetterEdit_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MailAddress to = new MailAddress(PLoginEdit.Text);
+            MailAddress from = new MailAddress(YLoginEdit.Text, Yname.Text);
+
+
+            MailMessage message = new MailMessage(from, to);
+
+            message.Subject = ThemnEdit.Text + " " + DateTime.Now;
+            message.Body = LetterEdit.Text + "  " + DateTime.Now;
+
+            SmtpClient client = new SmtpClient("smtp.gmail.com", 25);
+            client.Credentials = new NetworkCredential
+            {
+                UserName = YLoginEdit.Text,
+                SecurePassword = PasswordEdit.SecurePassword
+            };
+
+
+            client.EnableSsl = true;
+
+            client.Send(message);
         }
     }
 }

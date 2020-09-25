@@ -20,8 +20,9 @@
                     <UniformGrid Columns="2">
                         <Label Content="Почта:" Height="28"/>
                         <Label Content="Пароль:"/>
-                        <TextBox Text="youmail@somemail.com"/>
-                        <TextBox/>
+                        <TextBox Name="YLoginEdit" Text="youmail@somemail.com" TextChanged="YLoginEdit_TextChanged"/>
+                        <PasswordBox Name="PasswordEdit"></PasswordBox> 
+
                     </UniformGrid>
                 </StackPanel>
             </TabItem>
@@ -35,22 +36,23 @@
                         <RowDefinition Height="127*"/>
                         <RowDefinition Height="261*"/>
                     </Grid.RowDefinitions>
-                    <TextBox HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="207" Margin="128,127,0,0" Grid.RowSpan="2">youmail@somemail.com</TextBox>
+                    <TextBox Name="PLoginEdit" HorizontalAlignment="Left" Height="30" 
+                    VerticalAlignment="Top" Width="207" Margin="128,127,0,0" Grid.RowSpan="2" TextChanged="PLoginEdit_TextChanged">youmail@somemail.com</TextBox>
                 </Grid >
             </TabItem>
             <TabItem Header="Ввод информации письма">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Width="168">Введите имя:</Label>
-                        <TextBox  Width="200" Text="Имя"/>
+                        <TextBox Name="Yname" Width="200" Text="Имя" TextChanged="Yname_TextChanged"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Width="168">Введите тему:</Label>
-                        <TextBox  Width="200" Text="Тема"/>
+                        <TextBox Name="ThemnEdit"  Width="200" Text="Тема" TextChanged="ThemnEdit_TextChanged"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Width="168">Введите текст письма:</Label>
-                        <TextBox  Width="292" Height="133" />
+                        <TextBox  Name="LetterEdit" Width="292" Height="133" TextChanged="LetterEdit_TextChanged" />
                     </StackPanel>
                 </StackPanel>
             </TabItem>
@@ -61,7 +63,7 @@
                 <RowDefinition Height="95*"/>
             </Grid.RowDefinitions>
             <Button  Content="Ввод" FontFamily="Times New Roman" 
-                 FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Bottom"  Width="100"/>
+                 FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Bottom"  Width="100" Click="Button_Click"/>
         </Grid >
 
     </DockPanel>
