@@ -63,14 +63,23 @@ namespace Project_send_Email
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SendMessage b = new SendMessage(YLoginEdit.Text,
-                PasswordEdit.SecurePassword,
-                PLoginEdit.Text,
-                Yname.Text,
-                ThemnEdit.Text,
-                LetterEdit.Text, a);
+            
+                SendMessage b = new SendMessage(YLoginEdit.Text,
+                    PasswordEdit.SecurePassword,
+                    PLoginEdit.Text,
+                    Yname.Text,
+                    ThemnEdit.Text,
+                    LetterEdit.Text, a);
+            try
+            {
+                b.Send();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Невозможно отправить письмо " + ex.ToString());
 
-            b.Send();
+            }
+            MessageBox.Show("Работа завершена.");
         }
 
         private void rbYan_Checked(object sender, RoutedEventArgs e)
