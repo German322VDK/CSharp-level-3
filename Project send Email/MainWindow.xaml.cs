@@ -20,8 +20,15 @@ namespace Project_send_Email
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    public enum mail
+    {
+        yandex,
+        google
+    }
+
     public partial class MainWindow : Window
     {
+        mail a;
         public MainWindow()
         {
             InitializeComponent();
@@ -56,26 +63,24 @@ namespace Project_send_Email
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MailAddress to = new MailAddress(PLoginEdit.Text);
-            MailAddress from = new MailAddress(YLoginEdit.Text, Yname.Text);
+            SendMessage b = new SendMessage(YLoginEdit.Text,
+                PasswordEdit.SecurePassword,
+                PLoginEdit.Text,
+                Yname.Text,
+                ThemnEdit.Text,
+                LetterEdit.Text, a);
 
+            b.Send();
+        }
 
-            MailMessage message = new MailMessage(from, to);
+        private void rbYan_Checked(object sender, RoutedEventArgs e)
+        {
+            a = mail.yandex;
+        }
 
-            message.Subject = ThemnEdit.Text + " " + DateTime.Now;
-            message.Body = LetterEdit.Text + "  " + DateTime.Now;
-
-            SmtpClient client = new SmtpClient("smtp.gmail.com", 25);
-            client.Credentials = new NetworkCredential
-            {
-                UserName = YLoginEdit.Text,
-                SecurePassword = PasswordEdit.SecurePassword
-            };
-
-
-            client.EnableSsl = true;
-
-            client.Send(message);
+        private void rbGoog_Checked(object sender, RoutedEventArgs e)
+        {
+            a = mail.google;
         }
     }
 }

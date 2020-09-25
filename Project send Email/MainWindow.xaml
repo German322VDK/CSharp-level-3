@@ -21,8 +21,9 @@
                         <Label Content="Почта:" Height="28"/>
                         <Label Content="Пароль:"/>
                         <TextBox Name="YLoginEdit" Text="youmail@somemail.com" TextChanged="YLoginEdit_TextChanged"/>
-                        <PasswordBox Name="PasswordEdit"></PasswordBox> 
-
+                        <PasswordBox Name="PasswordEdit"></PasswordBox>
+                        <RadioButton x:Name="rbYan" Checked="rbYan_Checked">Yandex</RadioButton>
+                        <RadioButton x:Name="rbGoog" Checked="rbGoog_Checked">Google</RadioButton>
                     </UniformGrid>
                 </StackPanel>
             </TabItem>
@@ -36,6 +37,7 @@
                         <RowDefinition Height="127*"/>
                         <RowDefinition Height="261*"/>
                     </Grid.RowDefinitions>
+                    <Label VerticalAlignment="Top">Кому отправить:</Label>
                     <TextBox Name="PLoginEdit" HorizontalAlignment="Left" Height="30" 
                     VerticalAlignment="Top" Width="207" Margin="128,127,0,0" Grid.RowSpan="2" TextChanged="PLoginEdit_TextChanged">youmail@somemail.com</TextBox>
                 </Grid >
