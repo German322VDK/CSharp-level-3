@@ -29,8 +29,10 @@
                         <Label Content="Пароль:"/>
                         <TextBox Name="YLoginEdit" Text="youmail@somemail.com" TextChanged="YLoginEdit_TextChanged"/>
                         <PasswordBox Name="PasswordEdit"></PasswordBox>
-                        <RadioButton x:Name="rbYan" Checked="rbYan_Checked">Yandex</RadioButton>
-                        <RadioButton x:Name="rbGoog" Checked="rbGoog_Checked">Google</RadioButton>
+                        <RadioButton 
+                           GroupName="Servers" x:Name="rbYan" Checked="rbYan_Checked">Yandex</RadioButton>
+                        <RadioButton
+                            GroupName="Servers" x:Name="rbGoog" Checked="rbGoog_Checked">Google</RadioButton>
                     </UniformGrid>
                 </StackPanel>
             </TabItem>

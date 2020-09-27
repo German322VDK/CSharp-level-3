@@ -36,7 +36,7 @@ namespace Project_send_Email
             MailAddress from = new MailAddress(Ylog, Name);
 
 
-            MailMessage message = new MailMessage(from, to);
+            using MailMessage message = new MailMessage(from, to);
 
             message.Subject = Them + " " + DateTime.Now;
             message.Body = Lett + "  " + DateTime.Now;

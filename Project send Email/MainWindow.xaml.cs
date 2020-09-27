@@ -28,7 +28,7 @@ namespace Project_send_Email
 
     public partial class MainWindow : Window
     {
-        mail a;
+       private mail a;
         public MainWindow()
         {
             InitializeComponent();
