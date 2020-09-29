@@ -13,70 +13,33 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <DockPanel >
-
+    <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
-                <MenuItem Header="Выход"/>
+                <MenuItem Header="Создать" />
+                <MenuItem Header="Открыть" />
+                <MenuItem Header="Закрыть" />
+                <MenuItem Header="Сохранить" />
+                <Separator/>
+                <MenuItem Header="Выход" />
+            </MenuItem>
+            <MenuItem Header="Сервис">
+                <MenuItem Header="Параметры"/>
+            </MenuItem>
+            <MenuItem Header="Помощь">
+                <MenuItem Header="О программе"/>
             </MenuItem>
         </Menu>
-        <TabControl Style="{StaticResource Hypetb}">
-            <TabItem Header="Ввод своей почты и пароля">
-                <StackPanel Height="230">
-                    <Label Content="Вводим свою почту и пароль:"/>
-                    <UniformGrid Columns="2">
-                        <Label Content="Почта:" Height="28"/>
-                        <Label Content="Пароль:"/>
-                        <TextBox Name="YLoginEdit" Text="youmail@somemail.com" TextChanged="YLoginEdit_TextChanged"/>
-                        <PasswordBox Name="PasswordEdit"></PasswordBox>
-                        <RadioButton 
-                           GroupName="Servers" x:Name="rbYan" Checked="rbYan_Checked">Yandex</RadioButton>
-                        <RadioButton
-                            GroupName="Servers" x:Name="rbGoog" Checked="rbGoog_Checked">Google</RadioButton>
-                    </UniformGrid>
-                </StackPanel>
-            </TabItem>
-            <TabItem Header="Ввод почты получателя">
-                <Grid >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="170*"/>
-                        <ColumnDefinition Width="61*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="127*"/>
-                        <RowDefinition Height="261*"/>
-                    </Grid.RowDefinitions>
-                    <Label VerticalAlignment="Top">Кому отправить:</Label>
-                    <TextBox Name="PLoginEdit" HorizontalAlignment="Left" Height="30" 
-                    VerticalAlignment="Top" Width="207" Margin="128,127,0,0" Grid.RowSpan="2" TextChanged="PLoginEdit_TextChanged">youmail@somemail.com</TextBox>
-                </Grid >
-            </TabItem>
-            <TabItem Header="Ввод информации письма">
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Width="168">Введите имя:</Label>
-                        <TextBox Name="Yname" Width="200" Text="Имя" TextChanged="Yname_TextChanged"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Width="168">Введите тему:</Label>
-                        <TextBox Name="ThemnEdit"  Width="200" Text="Тема" TextChanged="ThemnEdit_TextChanged"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Width="168">Введите текст письма:</Label>
-                        <TextBox  Name="LetterEdit" Width="292" Height="133" TextChanged="LetterEdit_TextChanged" />
-                    </StackPanel>
-                </StackPanel>
-            </TabItem>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem DockPanel.Dock="Right">
+                <ResizeGrip/>
+            </StatusBarItem>
+            <StatusBarItem >
+                <TextBlock Text="Готов!"/>
+            </StatusBarItem>
+        </StatusBar>
+        <TabControl>
+            
         </TabControl>
-        <Grid Style="{StaticResource HypeBack}">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="321*"/>
-                <RowDefinition Height="95*"/>
-            </Grid.RowDefinitions>
-            <Button  Content="Ввод" FontFamily="Times New Roman" 
-                 FontSize="24" HorizontalAlignment="Center" 
-                VerticalAlignment="Bottom"  Width="100" Click="Button_Click" Style="{StaticResource BlackButtonStyle}"/>
-        </Grid >
-
     </DockPanel>
 </Window>

@@ -34,62 +34,62 @@ namespace Project_send_Email
             InitializeComponent();
         }
 
-        private void YLoginEdit_TextChanged(object sender, TextChangedEventArgs e)
-        {
+        //private void YLoginEdit_TextChanged(object sender, TextChangedEventArgs e)
+        //{
 
-        }
+        //}
 
        
 
-        private void PLoginEdit_TextChanged(object sender, TextChangedEventArgs e)
-        {
+        //private void PLoginEdit_TextChanged(object sender, TextChangedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void ThemnEdit_TextChanged(object sender, TextChangedEventArgs e)
-        {
+        //private void ThemnEdit_TextChanged(object sender, TextChangedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void Yname_TextChanged(object sender, TextChangedEventArgs e)
-        {
+        //private void Yname_TextChanged(object sender, TextChangedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void LetterEdit_TextChanged(object sender, TextChangedEventArgs e)
-        {
+        //private void LetterEdit_TextChanged(object sender, TextChangedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
             
-                SendMessage b = new SendMessage(YLoginEdit.Text,
-                    PasswordEdit.SecurePassword,
-                    PLoginEdit.Text,
-                    Yname.Text,
-                    ThemnEdit.Text,
-                    LetterEdit.Text, a);
-            try
-            {
-                b.Send();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Невозможно отправить письмо " + ex.ToString());
+        //        SendMessage b = new SendMessage(YLoginEdit.Text,
+        //            PasswordEdit.SecurePassword,
+        //            PLoginEdit.Text,
+        //            Yname.Text,
+        //            ThemnEdit.Text,
+        //            LetterEdit.Text, a);
+        //    try
+        //    {
+        //        b.Send();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Невозможно отправить письмо " + ex.ToString());
 
-            }
-            MessageBox.Show("Работа завершена.");
-        }
+        //    }
+        //    MessageBox.Show("Работа завершена.");
+        //}
 
-        private void rbYan_Checked(object sender, RoutedEventArgs e)
-        {
-            a = mail.yandex;
-        }
+        //private void rbYan_Checked(object sender, RoutedEventArgs e)
+        //{
+        //    a = mail.yandex;
+        //}
 
-        private void rbGoog_Checked(object sender, RoutedEventArgs e)
-        {
-            a = mail.google;
-        }
+        //private void rbGoog_Checked(object sender, RoutedEventArgs e)
+        //{
+        //    a = mail.google;
+        //}
     }
 }
