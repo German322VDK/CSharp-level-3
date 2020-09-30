@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using MailSender.lib.Servise;
 
 namespace Project_send_Email.Data
 {
@@ -27,7 +28,7 @@ namespace Project_send_Email.Data
            {
                Address = $"smtp.server{i}.com",
                Login = $"Login-{i}",
-               Password=$"Password-{i}",
+               Password= TextEncoder.Encode($"Password-{i}"),
                UseSSL = i%2==0
            })
            .ToList();
