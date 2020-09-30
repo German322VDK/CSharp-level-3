@@ -7,7 +7,7 @@ namespace Project_send_Email.Models
     class Servers
     {
         public string Address { get; set; }
-        private int _Port;
+        private int _Port=25;
 
         public int Port 
         {
@@ -21,7 +21,7 @@ namespace Project_send_Email.Models
         }
         public string Login { get; set; }
         public string Password { get; set; }
-        public bool UserSsl { get; set; }
+        public bool UseSSL { get; set; }
         public string Description { get; set; }
 
     }
