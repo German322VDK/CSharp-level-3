@@ -8,7 +8,7 @@
         xmlns:data="clr-namespace:Project_send_Email.Data"
         xmlns:m="clr-namespace:Project_send_Email.Models"
         mc:Ignorable="d"
-        Title="Рассылщик почты" Height="450" Width="800">
+        Title="Рассылщик почты" Height="622" Width="849">
     <Window.Resources>
         <ResourceDictionary >
             <ResourceDictionary.MergedDictionaries >
@@ -49,10 +49,10 @@
                             <ComboBox Name="ServersList" Margin="26, 0, 0, 0" MinWidth="120" 
                                       MaxWidth="200" SelectedIndex="0" ItemsSource="{ x:Static data:TestData.Serverss}"
                                       DisplayMemberPath="Address">
-                                
+
                             </ComboBox>
                             <Button ToolTip="Добавить">
-                                <fa:ImageAwesome Icon="Solid_PlusCircle" Foreground="DarkBlue" Height="12"/> 
+                                <fa:ImageAwesome Icon="Solid_PlusCircle" Foreground="DarkBlue" Height="12"/>
                             </Button>
                             <Button fa:Awesome.Content="Solid_Edit" Foreground="Coral" ToolTip="Редактировать"/>
                             <Button fa:Awesome.Content="Solid_Trash" Foreground="DarkSeaGreen" ToolTip="Удалить"/>
@@ -161,7 +161,7 @@
                                         </DockPanel>
                                     </StackPanel>
                                 </GroupBox>
-                                
+
                             </ListBoxItem>
                             <ListBoxItem>
                                 <GroupBox >
@@ -247,7 +247,7 @@
                     </Grid.Resources>
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Число отправленных писем:"/>
                     <TextBlock Grid.Row="0" Grid.Column="1" Text="5"/>
-                    
+
                     <TextBlock Grid.Row="1" Grid.Column="0" Text="Число отправителей в базе:"/>
                     <TextBlock Grid.Row="1" Grid.Column="1" Text="5"/>
 
