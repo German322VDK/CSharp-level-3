@@ -8,7 +8,7 @@
         xmlns:data="clr-namespace:Project_send_Email.Data"
         xmlns:m="clr-namespace:Project_send_Email.Models"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Рассылщик почты" Height="450" Width="800">
     <Window.Resources>
         <ResourceDictionary >
             <ResourceDictionary.MergedDictionaries >
@@ -17,7 +17,7 @@
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel>
-        <Menu DockPanel.Dock="Top">
+        <Menu DockPanel.Dock="Top" Background="BlueViolet" Foreground="AliceBlue">
             <MenuItem Header="Файл">
                 <MenuItem Header="Создать" />
                 <MenuItem Header="Открыть" />
@@ -41,10 +41,10 @@
                 <TextBlock Text="Готов!"/>
             </StatusBarItem>
         </StatusBar>
-        <TabControl>
-            <TabItem Header="Списки">
+        <TabControl Background="LightBlue">
+            <TabItem Header="Списки" >
                 <DockPanel>
-                    <ToolBarTray DockPanel.Dock="Top">
+                    <ToolBarTray DockPanel.Dock="Top" Background="LightSteelBlue">
                         <ToolBar Header="Сервера" Band="0">
                             <ComboBox Name="ServersList" Margin="26, 0, 0, 0" MinWidth="120" 
                                       MaxWidth="200" SelectedIndex="0" ItemsSource="{ x:Static data:TestData.Serverss}"
@@ -138,7 +138,7 @@
                                 <GroupBox >
                                     <GroupBox.Header>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock>Задание</TextBlock>
+                                            <TextBlock Foreground="AliceBlue">Задание</TextBlock>
                                             <Button BorderThickness="0" Background="Transparent" Foreground="red">X</Button>
                                         </StackPanel>
                                     </GroupBox.Header>
@@ -167,7 +167,7 @@
                                 <GroupBox >
                                     <GroupBox.Header>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock>Задание</TextBlock>
+                                            <TextBlock Foreground="AliceBlue">Задание</TextBlock>
                                             <Button BorderThickness="0" Background="Transparent" Foreground="red">X</Button>
                                         </StackPanel>
                                     </GroupBox.Header>
