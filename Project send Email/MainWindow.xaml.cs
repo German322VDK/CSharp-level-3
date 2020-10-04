@@ -14,82 +14,48 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net;
 using System.Net.Mail;
+using Project_send_Email.Models;
+using MailSender.lib;
 
 namespace Project_send_Email
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public enum mail
-    {
-        yandex,
-        google
-    }
+    
 
     public partial class MainWindow : Window
     {
-        mail a;
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void YLoginEdit_TextChanged(object sender, TextChangedEventArgs e)
+        private void OnSendButtonClick(object Sender, RoutedEventArgs e)
         {
-
-        }
-
-       
-
-        private void PLoginEdit_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void ThemnEdit_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Yname_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void LetterEdit_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-                SendMessage b = new SendMessage(YLoginEdit.Text,
-                    PasswordEdit.SecurePassword,
-                    PLoginEdit.Text,
-                    Yname.Text,
-                    ThemnEdit.Text,
-                    LetterEdit.Text, a);
+            var sender = SendersList.SelectedItem as Sender;
+            if (sender is null) return;
+            if (!(RecipientsList.SelectedItem is Recipient recipient)) return;
+            var server = ServersList.SelectedItem as Servers;
+            if (server is null) return;
+            var massage = MessagesList.SelectedItems as Message;
+            if (massage is null) return;
+            var mail_sender = new MailSenderServise
+            {
+                ServerAddress = server.Address,
+                ServerPort = server.Port,
+                UseSsl = server.UseSSL,
+                Loggin = server.Login,
+                Password = server.Password
+            };
             try
             {
-                b.Send();
+                mail_sender.SendMessage(sender.Address, recipient.Address, massage.Subject, massage.Body);
             }
-            catch (Exception ex)
+            catch (SmtpException er)
             {
-                MessageBox.Show("Невозможно отправить письмо " + ex.ToString());
-
+                MessageBox.Show("Ошибка при отправке письма"+ er.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            MessageBox.Show("Работа завершена.");
-        }
-
-        private void rbYan_Checked(object sender, RoutedEventArgs e)
-        {
-            a = mail.yandex;
-        }
-
-        private void rbGoog_Checked(object sender, RoutedEventArgs e)
-        {
-            a = mail.google;
         }
     }
 }
