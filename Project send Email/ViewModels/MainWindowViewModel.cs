@@ -7,6 +7,7 @@ using Project_send_Email.Models;
 using Project_send_Email.Infrastructure.Comands;
 using Project_send_Email.Data;
 using MailSender.lib.Servise;
+using MailSender.lib.Interfaces;
 
 namespace Project_send_Email.ViewModels
 {
