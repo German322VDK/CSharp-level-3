@@ -6,6 +6,7 @@ using Project_send_Email.ViewModels.Base;
 using Project_send_Email.Models;
 using Project_send_Email.Infrastructure.Comands;
 using Project_send_Email.Data;
+using MailSender.lib.Servise;
 
 namespace Project_send_Email.ViewModels
 {
@@ -98,9 +99,14 @@ namespace Project_send_Email.ViewModels
 
         private void OnCreateNewServerCommandExecuted(object p)
         {
-            // Основное действие, выполняемое командой, описывается здесь!!!
+            Servers.Add(new Servers {
+                Address = $"smtp.server{Servers.Count}.com",
+                Login = $"Login-{Servers.Count}",
+                Password = TextEncoder.Encode($"Password-{Servers.Count}"),
+                UseSSL = Servers.Count % 2 == 0
+            });
 
-            MessageBox.Show("Создание нового сервера!", "Управление серверами");
+            //MessageBox.Show("Создание нового сервера!", "Управление серверами");
         }
 
         #endregion
@@ -109,18 +115,18 @@ namespace Project_send_Email.ViewModels
 
         private ICommand _EditServerCommand;
 
-        //public ICommand EditServerCommand => _EditServerCommand
-        //    ??= new LambdaCommand(OnEditServerCommandExecuted, CanEditServerCommandExecute);
+        public ICommand EditServerCommand => _EditServerCommand
+            ??= new LambdaCommand(OnEditServerCommandExecuted, CanEditServerCommandExecute);
 
-        //private bool CanEditServerCommandExecute(object p) => p is Server || SelectedServer != null;
+        private bool CanEditServerCommandExecute(object p) => p is Servers || SelectedServer != null;
 
-        //private void OnEditServerCommandExecuted(object p)
-        //{
-        //    var server = p as Server ?? SelectedServer;
-        //    if (server is null) return;
+        private void OnEditServerCommandExecuted(object p)
+        {
+            var server = p as Servers ?? SelectedServer;
+            if (server is null) return;
 
-        //    MessageBox.Show($"Редактирование сервера {server.Address}!", "Управление серверами");
-        //}
+            MessageBox.Show($"Редактирование сервера {server.Address}!", "Управление серверами");
+        }
 
         #endregion
 
@@ -128,10 +134,10 @@ namespace Project_send_Email.ViewModels
 
         private ICommand _DeleteServerCommand;
 
-        //public ICommand DeleteServerCommand => _DeleteServerCommand
-        //    ??= new LambdaCommand(OnDeleteServerCommandExecuted, CanDeleteServerCommandExecute);
+        public ICommand DeleteServerCommand => _DeleteServerCommand
+            ??= new LambdaCommand(OnDeleteServerCommandExecuted, CanDeleteServerCommandExecute);
 
-        //private bool CanDeleteServerCommandExecute(object p) => p is Server || SelectedServer != null;
+        private bool CanDeleteServerCommandExecute(object p) => p is Servers || SelectedServer != null;
 
         private void OnDeleteServerCommandExecuted(object p)
         {
