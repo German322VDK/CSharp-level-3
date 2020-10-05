@@ -10,6 +10,7 @@
         mc:Ignorable="d"
         DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
         Title="{Binding Title}"
+        
         Height="622" Width="849">
     <Window.Resources>
         <ResourceDictionary >

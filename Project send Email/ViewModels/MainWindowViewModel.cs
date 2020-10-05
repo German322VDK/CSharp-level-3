@@ -105,7 +105,7 @@ namespace Project_send_Email.ViewModels
                 Password = TextEncoder.Encode($"Password-{Servers.Count}"),
                 UseSSL = Servers.Count % 2 == 0
             });
-
+            
             //MessageBox.Show("Создание нового сервера!", "Управление серверами");
         }
 
