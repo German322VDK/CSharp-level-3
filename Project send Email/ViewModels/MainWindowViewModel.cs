@@ -5,6 +5,7 @@ using System.Windows.Input;
 using Project_send_Email.ViewModels.Base;
 using Project_send_Email.Models;
 using Project_send_Email.Infrastructure.Comands;
+using Project_send_Email.Data;
 
 namespace Project_send_Email.ViewModels
 {
@@ -182,13 +183,13 @@ namespace Project_send_Email.ViewModels
 
         #endregion
 
-        //public MainWindowViewModel(IMailService MailService)
-        //{
-        //    _MailService = MailService;
-        //    Servers = new ObservableCollection<Servers>(TestData.Servers);
-        //    Senders = new ObservableCollection<Sender>(TestData.Senders);
-        //    Recipients = new ObservableCollection<Recipient>(TestData.Recipients);
-        //    Messages = new ObservableCollection<Message>(TestData.Messages);
-        //}
+        public MainWindowViewModel(/*IMailService MailService*/)
+        {
+            //_MailService = MailService;
+            Servers = new ObservableCollection<Servers>(TestData.Serverss);
+            Senders = new ObservableCollection<Sender>(TestData.Senders);
+            Recipients = new ObservableCollection<Recipient>(TestData.Recipients);
+            Messages = new ObservableCollection<Message>(TestData.Messages);
+        }
     }
 }
