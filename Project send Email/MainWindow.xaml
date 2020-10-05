@@ -31,6 +31,8 @@
             </MenuItem>
             <MenuItem Header="Сервис">
                 <MenuItem Header="Параметры"/>
+                <Separator/>
+                <MenuItem Header="Отправка почты" Command="{Binding SendMailCommand}"/>
             </MenuItem>
             <MenuItem Header="Помощь">
                 <MenuItem Header="О программе"/>
@@ -133,7 +135,7 @@
                                         <Setter Property="Background" Value="White"/>
                                     </Style>
                                 </StackPanel.Resources>
-                                <Button Content="Отправить" />
+                                <Button Content="Отправить" Command="{Binding SendMailCommand}"/>
                                 <Button Content="Запланировать" />
                             </StackPanel>
                         </StackPanel>
@@ -260,7 +262,7 @@
                         </Style>
                     </Grid.Resources>
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Число отправленных писем:"/>
-                    <TextBlock Grid.Row="0" Grid.Column="1" Text="5"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Statistic.SendMessagesCount}"/>
 
                     <TextBlock Grid.Row="1" Grid.Column="0" Text="Число отправителей в базе:"/>
                     <TextBlock Grid.Row="1" Grid.Column="1" Text="5"/>

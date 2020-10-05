@@ -13,9 +13,9 @@ namespace Project_send_Email.ViewModels
 {
     class MainWindowViewModel : ViewModel
     {
-        //private readonly IMailService _MailService;
+        private readonly IMailService _MailService;
 
-        //public StatisticViewModel Statistic { get; } = new StatisticViewModel();
+        public StatisticViewModel Statistic { get; } = new StatisticViewModel();
 
 
         private string _Title = "Тестовое окно";
@@ -159,8 +159,8 @@ namespace Project_send_Email.ViewModels
         private ICommand _SendMailCommand;
 
         /// <summary>Отправка почты</summary>
-        //public ICommand SendMailCommand => _SendMailCommand
-        //    ??= new LambdaCommand(OnSendMailCommandExecuted, CanSendMailCommandExecute);
+        public ICommand SendMailCommand => _SendMailCommand
+            ??= new LambdaCommand(OnSendMailCommandExecuted, CanSendMailCommandExecute);
 
         /// <summary>Проверка возможности выполнения - Отправка почты</summary>
         private bool CanSendMailCommandExecute(object p)
@@ -173,26 +173,26 @@ namespace Project_send_Email.ViewModels
         }
 
         /// <summary>Логика выполнения - Отправка почты</summary>
-        //private void OnSendMailCommandExecuted(object p)
-        //{
-        //    var server = SelectedServer;
-        //    var sender = SelectedSender;
-        //    var recipient = SelectedRecipient;
-        //    var message = SelectedMessage;
-
-        //    var mail_sender = _MailService.GetSender(server.Address, server.Port, server.UseSSL, server.Login, server.Password);
-        //    mail_sender.Send(sender.Address, recipient.Address, message.Subject, message.Body);
-
-        //    Statistic.MessageSended();
-        //}
-
-        #endregion
-
-        #endregion
-
-        public MainWindowViewModel(/*IMailService MailService*/)
+        private void OnSendMailCommandExecuted(object p)
         {
-            //_MailService = MailService;
+            var server = SelectedServer;
+            var sender = SelectedSender;
+            var recipient = SelectedRecipient;
+            var message = SelectedMessage;
+
+            var mail_sender = _MailService.GetSender(server.Address, server.Port, server.UseSSL, server.Login, server.Password);
+            mail_sender.Send(sender.Address, recipient.Address, message.Subject, message.Body);
+
+            Statistic.MessageSended();
+        }
+
+        #endregion
+
+        #endregion
+
+        public MainWindowViewModel(IMailService MailService)
+        {
+            _MailService = MailService;
             Servers = new ObservableCollection<Servers>(TestData.Serverss);
             Senders = new ObservableCollection<Sender>(TestData.Senders);
             Recipients = new ObservableCollection<Recipient>(TestData.Recipients);
