@@ -31,31 +31,31 @@ namespace Project_send_Email
             InitializeComponent();
         }
 
-        private void OnSendButtonClick(object Sender, RoutedEventArgs e)
-        {
-            var sender = SendersList.SelectedItem as Sender;
-            if (sender is null) return;
-            if (!(RecipientsList.SelectedItem is Recipient recipient)) return;
-            var server = ServersList.SelectedItem as Servers;
-            if (server is null) return;
-            var massage = MessagesList.SelectedItems as Message;
-            if (massage is null) return;
-            var mail_sender = new MailSenderServise
-            {
-                ServerAddress = server.Address,
-                ServerPort = server.Port,
-                UseSsl = server.UseSSL,
-                Loggin = server.Login,
-                Password = server.Password
-            };
-            try
-            {
-                mail_sender.SendMessage(sender.Address, recipient.Address, massage.Subject, massage.Body);
-            }
-            catch (SmtpException er)
-            {
-                MessageBox.Show("Ошибка при отправке письма"+ er.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
+        //private void OnSendButtonClick(object Sender, RoutedEventArgs e)
+        //{
+        //    var sender = SendersList.SelectedItem as Sender;
+        //    if (sender is null) return;
+        //    if (!(RecipientsList.SelectedItem is Recipient recipient)) return;
+        //    var server = ServersList.SelectedItem as Servers;
+        //    if (server is null) return;
+        //    var massage = MessagesList.SelectedItems as Message;
+        //    if (massage is null) return;
+        //    var mail_sender = new MailSenderServise
+        //    {
+        //        ServerAddress = server.Address,
+        //        ServerPort = server.Port,
+        //        UseSsl = server.UseSSL,
+        //        Loggin = server.Login,
+        //        Password = server.Password
+        //    };
+        //    try
+        //    {
+        //        mail_sender.SendMessage(sender.Address, recipient.Address, massage.Subject, massage.Body);
+        //    }
+        //    catch (SmtpException er)
+        //    {
+        //        MessageBox.Show("Ошибка при отправке письма"+ er.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+        //    }
+        //}
     }
 }
