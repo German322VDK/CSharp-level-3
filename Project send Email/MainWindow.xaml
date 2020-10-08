@@ -11,7 +11,7 @@
         mc:Ignorable="d"
         DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
         Title="{Binding Title}" 
-        Height="785" Width="1001">
+        Height="600" Width="1000">
     <Window.Resources>
         <ResourceDictionary >
             <ResourceDictionary.MergedDictionaries >
@@ -101,8 +101,13 @@
                             <Button fa:Awesome.Content="Solid_Trash" Foreground="DarkSeaGreen" ToolTip="Удалить"/>
                         </ToolBar>
                     </ToolBarTray>
-                    <Grid>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
                         <v:RecipientsView/>
+                        <v:RecipientEditor Grid.Column="1"/>
                     </Grid>
                 </DockPanel>
             </TabItem>
