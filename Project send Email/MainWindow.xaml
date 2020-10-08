@@ -7,10 +7,11 @@
         xmlns:fa="http://schemas.fontawesome.com/icons/"
         xmlns:data="clr-namespace:Project_send_Email.Data"
         xmlns:m="clr-namespace:Project_send_Email.Models"
+        xmlns:v="clr-namespace:Project_send_Email.Views"
         mc:Ignorable="d"
         DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
         Title="{Binding Title}" 
-        Height="622" Width="849">
+        Height="785" Width="1001">
     <Window.Resources>
         <ResourceDictionary >
             <ResourceDictionary.MergedDictionaries >
@@ -100,21 +101,9 @@
                             <Button fa:Awesome.Content="Solid_Trash" Foreground="DarkSeaGreen" ToolTip="Удалить"/>
                         </ToolBar>
                     </ToolBarTray>
-                    <GroupBox Header="Список получателей">
-                        <DataGrid Name="RecipientsList" 
-                                  ItemsSource="{Binding Recipients}"
-                                  SelectedItem="{Binding SelectedRecipient}"
-                                  AutoGenerateColumns="False"
-                                  GridLinesVisibility="Vertical"
-                                  AlternatingRowBackground="LightBlue"
-                                  VerticalGridLinesBrush="Gray">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="ID" MinWidth="30"/>
-                                <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding Name}"/>
-                                <DataGridTextColumn Header="Адрес" MinWidth="160" Binding="{Binding Address}"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
-                    </GroupBox>
+                    <Grid>
+                        <v:RecipientsView/>
+                    </Grid>
                 </DockPanel>
             </TabItem>
             <TabItem Header="Планировщик">

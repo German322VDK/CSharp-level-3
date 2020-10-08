@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 
 namespace MailSender.lib.Servise
 {
-    class Rfc2898Encryptor : IEncryptorService
+    public class Rfc2898Encryptor : IEncryptorService
     {
         private static readonly byte[] SALT =
         {

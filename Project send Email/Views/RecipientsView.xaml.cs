@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -12,25 +10,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Net;
-using System.Net.Mail;
-using Project_send_Email.Models;
-using MailSender.lib;
 
-namespace Project_send_Email
+namespace Project_send_Email.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для RecipientsView.xaml
     /// </summary>
-    
-
-    public partial class MainWindow : Window
+    public partial class RecipientsView : UserControl
     {
-        public MainWindow()
+        public RecipientsView()
         {
             InitializeComponent();
         }
-
-        
     }
 }

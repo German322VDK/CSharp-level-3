@@ -30,8 +30,8 @@ namespace Project_send_Email
 #else
             services.AddTransient<IMailService, SmtpMailService>();
 #endif
-
-           // services.AddScoped<>()
+            services.AddSingleton<IEncryptorService, Rfc2898Encryptor>();
+            // services.AddScoped<>()
 
             //using (var scope = Services.CreateScope())
             //{
