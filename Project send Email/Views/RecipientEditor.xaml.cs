@@ -16,11 +16,16 @@ namespace Project_send_Email.Views
     /// <summary>
     /// Логика взаимодействия для RecipientEditor.xaml
     /// </summary>
-    public partial class RecipientEditor : UserControl
+    public partial class RecipientEditor
     {
-        public RecipientEditor()
+        public RecipientEditor() => InitializeComponent();
+        
+        private void OnDataValidationError(object? sender, ValidationErrorEventArgs e)
         {
-            InitializeComponent();
+            var control = (Control)sender;
+            if (e.Action == ValidationErrorEventAction.Added)
+                control.ToolTip = e.Error.ErrorContent.ToString();
+            else  control.ClearValue(ToolTipProperty);
         }
     }
 }
