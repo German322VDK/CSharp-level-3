@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net;
 using System.Net.Mail;
-using Project_send_Email.Models;
+using Project_send_Email.lib.Models;
 using MailSender.lib;
 
 namespace Project_send_Email

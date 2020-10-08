@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project_send_Email.Models
+namespace Project_send_Email.lib.Models
 {
-    class Servers
+    public class Servers
     {
         public string Address { get; set; }
         private int _Port=25;

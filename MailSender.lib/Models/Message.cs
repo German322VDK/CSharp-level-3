@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project_send_Email.Models
+namespace Project_send_Email.lib.Models
 {
-    class Message
+    public class Message
     {
         public string Subject { set; get; }
         public string Body { set; get; }
