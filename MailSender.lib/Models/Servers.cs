@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MailSender.lib.Models.Base;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Project_send_Email.lib.Models
 {
-    public class Servers
+    public class Servers : NamedEntity
     {
         public string Address { get; set; }
         private int _Port=25;
