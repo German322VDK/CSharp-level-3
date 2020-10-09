@@ -22,10 +22,10 @@ namespace Project_send_Email.Views
         
         private void OnDataValidationError(object? sender, ValidationErrorEventArgs e)
         {
-            var control = (Control)e.OriginalSource;
-            if (e.Action == ValidationErrorEventAction.Added)
-                control.ToolTip = e.Error.ErrorContent.ToString();
-            else  control.ClearValue(ToolTipProperty);
+            //var control = (Control)e.OriginalSource;
+            //if (e.Action == ValidationErrorEventAction.Added)
+            //    control.ToolTip = e.Error.ErrorContent.ToString();
+            //else  control.ClearValue(ToolTipProperty);
         }
     }
 }
