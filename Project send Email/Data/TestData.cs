@@ -1,4 +1,4 @@
-﻿using Project_send_Email.Models;
+﻿using Project_send_Email.lib.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;

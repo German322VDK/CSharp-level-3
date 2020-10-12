@@ -4,9 +4,7 @@ using System.Text;
 
 namespace Project_send_Email.Models
 {
-    class Sender
+    class _1
     {
-        public string Name { set; get; }
-        public string Address { set; get; }
     }
 }
