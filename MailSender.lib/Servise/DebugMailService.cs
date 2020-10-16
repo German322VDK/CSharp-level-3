@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading;
+using System.Threading.Tasks;
 using MailSender.lib.Interfaces;
 
 namespace MailSender.lib.Servise
@@ -42,9 +44,24 @@ namespace MailSender.lib.Servise
                     Send(SenderAddress, recipient_address, Subject, Body);
             }
 
+            public async Task SendAsync(string SenderAddress, string RecipientAddress, string Subject, string Body, CancellationToken Cancel = default)
+            {
+                
+            }
+
+            public async Task SendAsync(string SenderAddress, IEnumerable<string> RecipientsAddresses, string Subject, string Body, System.IProgress<(string Recipient, double Percent)> Progress = null, CancellationToken Cancel = default)
+            {
+                
+            }
+
             public void SendParallel(string SenderAddress, IEnumerable<string> RecipientsAddresses, string Subject, string Body)
             {
                 Send(SenderAddress, RecipientsAddresses, Subject, Body);
+            }
+
+            public async Task SendParallelAsync(string SenderAddress, IEnumerable<string> RecipientsAddresses, string Subject, string Body, CancellationToken Cancel = default)
+            {
+                
             }
         }
     }
