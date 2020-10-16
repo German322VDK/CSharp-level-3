@@ -14,7 +14,7 @@ namespace MailSender.lib.Servise
             return new SmtpMailSender(Server, Port, SSL, Login, Password);
         }
     }
-
+     
     internal class SmtpMailSender : IMailSender
     {
         private readonly string _Address;
