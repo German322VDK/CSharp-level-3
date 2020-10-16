@@ -12,6 +12,7 @@
         DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
         Title="{Binding Title}" 
         Height="600" Width="1000">
+    
     <Window.Resources>
         <ResourceDictionary >
             <ResourceDictionary.MergedDictionaries >
