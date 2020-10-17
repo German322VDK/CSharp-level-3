@@ -73,7 +73,7 @@ namespace MultiThreadedComputing
         private static void PrintThreadInfo()
         {
             var thread = Thread.CurrentThread;
-            Console.WriteLine(
+            Console.WriteLine( 
                 "\nПоток id: {0}; name: {1}; priority: {2}\n",
                thread.ManagedThreadId, thread.Name, thread.Priority);
         }
