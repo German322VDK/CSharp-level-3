@@ -26,6 +26,6 @@ namespace TestDataBase.Data.Entities
     class Group : NamedEntity
     {
         public string Discription { get; set; }
-        public virtual ICollection<Student> Students { get; set; } //Навигационные свойства 
+        public virtual ICollection<Student> Students { get; set; }
     }
 }
