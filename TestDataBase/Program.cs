@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using TestDataBase.Data;
 using TestDataBase.Data.Entities;
@@ -21,7 +22,8 @@ namespace TestDataBase
             //}
             using (var db = new StudentsDB(new DbContextOptionsBuilder<StudentsDB>().UseSqlServer(connection_str).Options))
             {
-                await db.Database.EnsureCreatedAsync();
+                //await db.Database.EnsureCreatedAsync();
+                await db.Database.MigrateAsync();
                 var students_count = await db.Students.CountAsync();
                 Console.WriteLine("Число студентов в БД = {0}", students_count);
             }
@@ -56,6 +58,14 @@ namespace TestDataBase
 
                     await db.SaveChangesAsync();
                 }
+            }
+            using (var db = new StudentsDB(new DbContextOptionsBuilder<StudentsDB>().UseSqlServer(connection_str).Options))
+            {
+                var students = await db.Students
+                    .Include(s => s.Group)
+                    .Where(s => s.Group.Name == "Группа 5").ToArrayAsync();
+                foreach (var student in students)
+                    Console.WriteLine("[{0}] {1} - {2}", student.Id, student.Name, student.Group.Name);
             }
             Console.WriteLine("Главный поток завершил работу");
             Console.ReadLine();
