@@ -12,6 +12,7 @@ using System.Windows;
 using System.Linq;
 using Project_send_Email.lib.Models;
 using Project_send_Email.Data.Stores.InDB;
+using MailSender.lib.Models;
 
 namespace Project_send_Email
 {
@@ -56,6 +57,10 @@ namespace Project_send_Email
             services.AddTransient<Project_send_EmailDbInitializer>();
             // services.AddScoped<>()
             services.AddSingleton<IStore<Recipient>, RecipientsStoreInDB>();
+            services.AddSingleton<IStore<Sender>, SendersStoreInDB>();
+            services.AddSingleton<IStore<Servers>, ServersStoreInDB>();
+            services.AddSingleton<IStore<Message>, MessagesStoreInDB>();
+            services.AddSingleton<IStore<SchedulerTask>, SchedulerTasksStoreInDB>();
             //using (var scope = Services.CreateScope())
             //{
             //    var mail_service = scope.ServiceProvider.GetRequiredService<IMailService>();
