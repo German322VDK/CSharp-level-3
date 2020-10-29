@@ -8,13 +8,15 @@ using Project_send_Email.Infrastructure.Comands;
 using Project_send_Email.Data;
 using MailSender.lib.Servise;
 using MailSender.lib.Interfaces;
+using Microsoft.Extensions.Configuration;
 
 namespace Project_send_Email.ViewModels
 {
+
     class MainWindowViewModel : ViewModel
     {
         private readonly IMailService _MailService;
-
+        private readonly IStore<Recipient> _RecipientsStore;
         public StatisticViewModel Statistic { get; } = new StatisticViewModel();
 
 
@@ -100,13 +102,14 @@ namespace Project_send_Email.ViewModels
 
         private void OnCreateNewServerCommandExecuted(object p)
         {
-            Servers.Add(new Servers {
+            Servers.Add(new Servers
+            {
                 Address = $"smtp.server{Servers.Count}.com",
                 Login = $"Login-{Servers.Count}",
                 Password = TextEncoder.Encode($"Password-{Servers.Count}"),
                 UseSSL = Servers.Count % 2 == 0
             });
-            
+
             //MessageBox.Show("Создание нового сервера!", "Управление серверами");
         }
 
@@ -190,13 +193,16 @@ namespace Project_send_Email.ViewModels
 
         #endregion
 
-        public MainWindowViewModel(IMailService MailService)
+        public MainWindowViewModel(IMailService MailService, IStore<Recipient> RecipientsStore)
         {
             _MailService = MailService;
+            _RecipientsStore = RecipientsStore;
             Servers = new ObservableCollection<Servers>(TestData.Serverss);
             Senders = new ObservableCollection<Sender>(TestData.Senders);
-            Recipients = new ObservableCollection<Recipient>(TestData.Recipients);
+            Recipients = new ObservableCollection<Recipient>(RecipientsStore.GetAll());
             Messages = new ObservableCollection<Message>(TestData.Messages);
         }
+
+        
     }
 }
