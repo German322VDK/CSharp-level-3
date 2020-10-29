@@ -61,6 +61,7 @@ namespace Project_send_Email
             services.AddSingleton<IStore<Servers>, ServersStoreInDB>();
             services.AddSingleton<IStore<Message>, MessagesStoreInDB>();
             services.AddSingleton<IStore<SchedulerTask>, SchedulerTasksStoreInDB>();
+            services.AddSingleton<IMailSchedulerService, TaskMailSchedulerService>();
             //using (var scope = Services.CreateScope())
             //{
             //    var mail_service = scope.ServiceProvider.GetRequiredService<IMailService>();
